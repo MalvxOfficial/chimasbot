@@ -3653,6 +3653,16 @@ Código: *${roleCode}*`,
       if (!isUserWhitelisted(sender, 'antilinkcanal')) {
         console.log('[DEBUG] Usuário não está na whitelist anti-linkcanal');
         let foundChannelLink = false;
+        
+        // Verificação síncrona inicial
+        if (!budy2.includes('whatsapp.com/channel/')) {
+          const paymentText = info.message?.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
+          if (!paymentText.includes('whatsapp.com/channel/')) {
+            console.log('[DEBUG] Nenhum link de canal detectado, saindo do anti-linkcanal');
+            return;
+          }
+        }
+        
         Promise.resolve()
           .then(() => {
             if (budy2.includes('whatsapp.com/channel/')) {
@@ -3725,11 +3735,14 @@ Código: *${roleCode}*`,
               console.error("Erro no sistema antilinksoft:", error);
             });
           return;
+        } else {
+          console.log('[DEBUG] Nenhuma URL detectada no anti-link soft, continuando...');
         }
       }
     }
     // AntiLink Hard - Remove qualquer link compartilhado
     if (isGroup && groupData.antilinkhard && parceriasData.active && !isGroupAdmin && !isOwner && !isParceiro && !isCmd) {
+      console.log('[DEBUG] Verificando anti-link hard para não-admin');
       // Regex mais restrita: exige protocolo (http/https) ou www
       const linkRegex = /\b(?:https?:\/\/|www\.)\S+/gi;
       const hasLink = linkRegex.test(body);
@@ -3771,6 +3784,7 @@ Código: *${roleCode}*`,
         return;
       }
     }
+    console.log('[DEBUG] Passou de todos os checks anti-link, continuando fluxo normal...');
   const botStateFile = pathz.join(DATABASE_DIR, 'botState.json');
     console.log('[DEBUG] botState.status:', botState.status, 'isOwner:', isOwner, 'isGroup:', isGroup, 'sender:', sender?.substring(0, 15));
     if (botState.status === 'off' && !isOwner) {
