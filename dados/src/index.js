@@ -3573,79 +3573,77 @@ Código: *${roleCode}*`,
         console.log('[DEBUG] Usuário não está na whitelist anti-linkgp');
         let foundGroupLink = false;
         let link_dgp = null;
-        
-        // Verificação síncrona inicial
-        if (!budy2.includes('chat.whatsapp.com')) {
-          const paymentText = info.message?.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
-          if (!paymentText.includes('chat.whatsapp.com')) {
-            console.log('[DEBUG] Nenhum link de grupo detectado, saindo do anti-linkgp');
-            return;
-          }
-        }
-        
-        const getInviteCode = () => {
-          if (link_dgp) return Promise.resolve(link_dgp);
-          return nazu.groupInviteCode(from).then(code => {
-            link_dgp = code;
-            return code;
-          });
-        };
 
-        Promise.resolve()
-          .then(() => {
-            if (budy2.includes('chat.whatsapp.com')) {
-              foundGroupLink = true;
-              return getInviteCode().then(code => {
-                if (budy2.includes(code)) foundGroupLink = false;
-              });
-            }
-          })
-          .then(() => {
-            if (!foundGroupLink && info.message?.requestPaymentMessage) {
-              const paymentText = info.message.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
-              if (paymentText.includes('chat.whatsapp.com')) {
+        const paymentTextSync = info.message?.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
+        const hasPotentialGroupLink = budy2.includes('chat.whatsapp.com') || paymentTextSync.includes('chat.whatsapp.com');
+
+        if (!hasPotentialGroupLink) {
+          console.log('[DEBUG] Nenhum link de grupo detectado, seguindo fluxo...');
+        } else {
+          const getInviteCode = () => {
+            if (link_dgp) return Promise.resolve(link_dgp);
+            return nazu.groupInviteCode(from).then(code => {
+              link_dgp = code;
+              return code;
+            });
+          };
+
+          Promise.resolve()
+            .then(() => {
+              if (budy2.includes('chat.whatsapp.com')) {
                 foundGroupLink = true;
                 return getInviteCode().then(code => {
-                  if (paymentText.includes(code)) foundGroupLink = false;
+                  if (budy2.includes(code)) foundGroupLink = false;
                 });
               }
-            }
-          })
-          .then(() => {
-            if (foundGroupLink) {
-              console.log('[DEBUG] BLOQUEADO: anti-link grupo - link detectado');
-              if (isBotAdmin) {
-                return nazu.groupParticipantsUpdate(from, [sender], 'remove')
-                  .then(() => nazu.sendMessage(from, {
+            })
+            .then(() => {
+              if (!foundGroupLink && info.message?.requestPaymentMessage) {
+                const paymentText = info.message.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
+                if (paymentText.includes('chat.whatsapp.com')) {
+                  foundGroupLink = true;
+                  return getInviteCode().then(code => {
+                    if (paymentText.includes(code)) foundGroupLink = false;
+                  });
+                }
+              }
+            })
+            .then(() => {
+              if (foundGroupLink) {
+                console.log('[DEBUG] BLOQUEADO: anti-link grupo - link detectado');
+                if (isBotAdmin) {
+                  return nazu.groupParticipantsUpdate(from, [sender], 'remove')
+                    .then(() => nazu.sendMessage(from, {
+                      delete: {
+                        remoteJid: from,
+                        fromMe: false,
+                        id: info.key.id,
+                        participant: sender
+                      }
+                    }))
+                    .then(() => reply(`🔗 @${getUserName(sender)}, links de outros grupos não são permitidos. Você foi removido do grupo.`, {
+                      mentions: [sender]
+                    }));
+                } else {
+                  return nazu.sendMessage(from, {
                     delete: {
                       remoteJid: from,
                       fromMe: false,
                       id: info.key.id,
                       participant: sender
                     }
-                  }))
-                  .then(() => reply(`🔗 @${getUserName(sender)}, links de outros grupos não são permitidos. Você foi removido do grupo.`, {
-                    mentions: [sender]
-                  }));
-              } else {
-                return nazu.sendMessage(from, {
-                  delete: {
-                    remoteJid: from,
-                    fromMe: false,
-                    id: info.key.id,
-                    participant: sender
-                  }
-                })
-                  .then(() => reply(`🔗 Atenção, @${getUserName(sender)}! Links de outros grupos não são permitidos. Não consigo remover você, mas evite compartilhar esses links.`, {
-                    mentions: [sender]
-                  }));
+                  })
+                    .then(() => reply(`🔗 Atenção, @${getUserName(sender)}! Links de outros grupos não são permitidos. Não consigo remover você, mas evite compartilhar esses links.`, {
+                      mentions: [sender]
+                    }));
+                }
               }
-            }
-          })
-          .catch(error => {
-            console.error("Erro no sistema antilink de grupos:", error);
-          });
-        return;
+            })
+            .catch(error => {
+              console.error("Erro no sistema antilink de grupos:", error);
+            });
+          return;
+        }
       }
     }
     if (isGroup && isAntiLinkCanal && !isGroupAdmin && !isParceiro) {
@@ -3653,65 +3651,63 @@ Código: *${roleCode}*`,
       if (!isUserWhitelisted(sender, 'antilinkcanal')) {
         console.log('[DEBUG] Usuário não está na whitelist anti-linkcanal');
         let foundChannelLink = false;
-        
-        // Verificação síncrona inicial
-        if (!budy2.includes('whatsapp.com/channel/')) {
-          const paymentText = info.message?.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
-          if (!paymentText.includes('whatsapp.com/channel/')) {
-            console.log('[DEBUG] Nenhum link de canal detectado, saindo do anti-linkcanal');
-            return;
-          }
-        }
-        
-        Promise.resolve()
-          .then(() => {
-            if (budy2.includes('whatsapp.com/channel/')) {
-              foundChannelLink = true;
-            }
-            if (!foundChannelLink && info.message?.requestPaymentMessage) {
-              const paymentText = info.message.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
-              if (paymentText.includes('whatsapp.com/channel/')) {
+
+        const paymentTextSync = info.message?.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
+        const hasPotentialChannelLink = budy2.includes('whatsapp.com/channel/') || paymentTextSync.includes('whatsapp.com/channel/');
+
+        if (!hasPotentialChannelLink) {
+          console.log('[DEBUG] Nenhum link de canal detectado, seguindo fluxo...');
+        } else {
+          Promise.resolve()
+            .then(() => {
+              if (budy2.includes('whatsapp.com/channel/')) {
                 foundChannelLink = true;
               }
-            }
-          })
-          .then(() => {
-            if (foundChannelLink) {
-              console.log('[DEBUG] BLOQUEADO: anti-link canal - link detectado');
-              if (isOwner) return;
-              if (!AllgroupMembers.includes(sender)) return;
-              if (isBotAdmin) {
-                return nazu.groupParticipantsUpdate(from, [sender], 'remove')
-                  .then(() => nazu.sendMessage(from, {
+              if (!foundChannelLink && info.message?.requestPaymentMessage) {
+                const paymentText = info.message.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
+                if (paymentText.includes('whatsapp.com/channel/')) {
+                  foundChannelLink = true;
+                }
+              }
+            })
+            .then(() => {
+              if (foundChannelLink) {
+                console.log('[DEBUG] BLOQUEADO: anti-link canal - link detectado');
+                if (isOwner) return;
+                if (!AllgroupMembers.includes(sender)) return;
+                if (isBotAdmin) {
+                  return nazu.groupParticipantsUpdate(from, [sender], 'remove')
+                    .then(() => nazu.sendMessage(from, {
+                      delete: {
+                        remoteJid: from,
+                        fromMe: false,
+                        id: info.key.id,
+                        participant: sender
+                      }
+                    }))
+                    .then(() => reply(`📢 @${getUserName(sender)}, links de canais não são permitidos. Você foi removido do grupo.`, {
+                      mentions: [sender]
+                    }));
+                } else {
+                  return nazu.sendMessage(from, {
                     delete: {
                       remoteJid: from,
                       fromMe: false,
                       id: info.key.id,
                       participant: sender
                     }
-                  }))
-                  .then(() => reply(`📢 @${getUserName(sender)}, links de canais não são permitidos. Você foi removido do grupo.`, {
-                    mentions: [sender]
-                  }));
-              } else {
-                return nazu.sendMessage(from, {
-                  delete: {
-                    remoteJid: from,
-                    fromMe: false,
-                    id: info.key.id,
-                    participant: sender
-                  }
-                })
-                  .then(() => reply(`📢 Atenção, @${getUserName(sender)}! Links de canais não são permitidos. Não consigo remover você, mas evite compartilhar esses links.`, {
-                    mentions: [sender]
-                  }));
+                  })
+                    .then(() => reply(`📢 Atenção, @${getUserName(sender)}! Links de canais não são permitidos. Não consigo remover você, mas evite compartilhar esses links.`, {
+                      mentions: [sender]
+                    }));
+                }
               }
-            }
-          })
-          .catch(error => {
-            console.error("Erro no sistema antilink de canais:", error);
-          });
-        return;
+            })
+            .catch(error => {
+              console.error("Erro no sistema antilink de canais:", error);
+            });
+          return;
+        }
       }
     }
     if (isGroup && isAntiLinkSoft && !isGroupAdmin && !isParceiro && !isOwner && !isCmd) {
