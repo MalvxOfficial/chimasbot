@@ -612,6 +612,36 @@ async function NazuninhaBotExec(nazu, info, store, messagesCache, rentalExpirati
   // Log de início de processamento para debug paralelo
   const msgId = info?.key?.id?.slice(-6) || 'unknown';
   const from = info?.key?.remoteJid || 'unknown';
+  const fullMsgId = info?.key?.id || 'unknown';
+
+  // Deduplicação: evitar processar a mesma mensagem múltiplas vezes
+  if (!global.processedMessages) {
+    global.processedMessages = new Map();
+  }
+  
+  const now = Date.now();
+  const msgKey = `${from}_${fullMsgId}`;
+  
+  if (global.processedMessages.has(msgKey)) {
+    const lastProcessed = global.processedMessages.get(msgKey);
+    // Ignorar se processado nos últimos 5 segundos
+    if (now - lastProcessed < 5000) {
+      console.log('[DEBUG] Mensagem já processada recentemente, ignorando:', msgKey);
+      return;
+    }
+  }
+  
+  global.processedMessages.set(msgKey, now);
+  
+  // Limpar mensagens antigas (manter apenas últimas 1000 ou com mais de 1 minuto)
+  if (global.processedMessages.size > 1000) {
+    const cutoff = now - 60000; // 1 minuto
+    for (const [key, timestamp] of global.processedMessages.entries()) {
+      if (timestamp < cutoff) {
+        global.processedMessages.delete(key);
+      }
+    }
+  }
 
   let config = loadJsonFile(CONFIG_FILE, {});
   ensureDatabaseIntegrity({ log: Boolean(config?.debug) });
@@ -3543,6 +3573,16 @@ Código: *${roleCode}*`,
         console.log('[DEBUG] Usuário não está na whitelist anti-linkgp');
         let foundGroupLink = false;
         let link_dgp = null;
+        
+        // Verificação síncrona inicial
+        if (!budy2.includes('chat.whatsapp.com')) {
+          const paymentText = info.message?.requestPaymentMessage?.noteMessage?.extendedTextMessage?.text || '';
+          if (!paymentText.includes('chat.whatsapp.com')) {
+            console.log('[DEBUG] Nenhum link de grupo detectado, saindo do anti-linkgp');
+            return;
+          }
+        }
+        
         const getInviteCode = () => {
           if (link_dgp) return Promise.resolve(link_dgp);
           return nazu.groupInviteCode(from).then(code => {
