@@ -1994,15 +1994,22 @@ async function NazuninhaBotExec(nazu, info, store, messagesCache, rentalExpirati
     }
     const isModoBn = groupData.modobrincadeira;
     const isOnlyAdmin = groupData.soadm;
+    console.log('[DEBUG] isOnlyAdmin:', isOnlyAdmin, 'isGroupAdmin:', isGroupAdmin, 'isOwner:', isOwner, 'command:', command);
     
     // Se modo soadm ativo e não é admin, ignorar aliases silenciosamente
     if (isGroup && isOnlyAdmin && !isGroupAdmin && !isOwner && matchedAlias) {
+      console.log('[DEBUG] BLOQUEADO: soadm (alias)');
       return; // Ignora silenciosamente o alias para não-admins
     }
     
     const isAntiPorn = groupData.antiporn;
     const isMuted = groupData.mutedUsers?.[sender];
     const isMuted2 = groupData.mutedUsers2?.[sender];
+    console.log('[DEBUG] isMuted:', !!isMuted, 'isMuted2:', !!isMuted2, 'sender:', sender?.substring(0, 15));
+    if (isMuted || isMuted2) {
+      console.log('[DEBUG] BLOQUEADO: usuário mutado');
+      return;
+    }
     const isAntiLinkGp = groupData.antilinkgp;
     const isAntiLinkCanal = groupData.antilinkcanal;
     const isAntiLinkSoft = groupData.antilinksoft;
@@ -2019,6 +2026,7 @@ async function NazuninhaBotExec(nazu, info, store, messagesCache, rentalExpirati
     }
     
     if (isGroup && groupData.minMessage && (isImage || isVideo || isVisuU || isVisuU2) && !isGroupAdmin && !isOwner) {
+  console.log('[DEBUG] Verificando minMessage para mídia de não-admin');
   let caption = '';
   if (isImage) {
     caption = info.message.imageMessage?.caption || '';
@@ -2029,7 +2037,9 @@ async function NazuninhaBotExec(nazu, info, store, messagesCache, rentalExpirati
   } else if (isVisuU2) {
     caption = info.message.viewOnceMessageV2?.message?.imageMessage?.caption || info.message.viewOnceMessageV2?.message?.videoMessage?.caption || '';
   }
+  console.log('[DEBUG] caption length:', caption.length, 'required:', groupData.minMessage.minDigits);
   if (caption.length < groupData.minMessage.minDigits) {
+    console.log('[DEBUG] BLOQUEADO: legenda muito curta (minMessage)');
     try {
       await nazu.sendMessage(from, { delete: info.key });
       if (groupData.minMessage.action === 'ban') {
@@ -2049,7 +2059,9 @@ async function NazuninhaBotExec(nazu, info, store, messagesCache, rentalExpirati
 };
 
     if (isGroup && isStatusMention && isAntiStatus && !isGroupAdmin) {
+      console.log('[DEBUG] Verificando anti-status para não-admin');
       if (!isUserWhitelisted(sender, 'antistatus')) {
+        console.log('[DEBUG] BLOQUEADO: anti-status');
         if (isBotAdmin) {
           await nazu.sendMessage(from, {
             delete: {
@@ -2066,7 +2078,9 @@ async function NazuninhaBotExec(nazu, info, store, messagesCache, rentalExpirati
       }
     }
     if (isGroup && isButtonMessage && isAntiBtn && !isGroupAdmin) {
+      console.log('[DEBUG] Verificando anti-btn para não-admin');
       if (!isUserWhitelisted(sender, 'antibtn')) {
+        console.log('[DEBUG] BLOQUEADO: anti-btn');
         if (isBotAdmin) {
           await nazu.sendMessage(from, {
             delete: {
@@ -3524,7 +3538,9 @@ Código: *${roleCode}*`,
     const isParceiro = parceriasData && parceriasData.partners && parceriasData.partners[sender];
 
     if (isGroup && isAntiLinkGp && !isGroupAdmin && !isParceiro) {
+      console.log('[DEBUG] Verificando anti-link grupo para não-admin');
       if (!isUserWhitelisted(sender, 'antilinkgp')) {
+        console.log('[DEBUG] Usuário não está na whitelist anti-linkgp');
         let foundGroupLink = false;
         let link_dgp = null;
         const getInviteCode = () => {
@@ -3557,8 +3573,7 @@ Código: *${roleCode}*`,
           })
           .then(() => {
             if (foundGroupLink) {
-              if (isOwner) return;
-              if (!AllgroupMembers.includes(sender)) return;
+              console.log('[DEBUG] BLOQUEADO: anti-link grupo - link detectado');
               if (isBotAdmin) {
                 return nazu.groupParticipantsUpdate(from, [sender], 'remove')
                   .then(() => nazu.sendMessage(from, {
@@ -3594,7 +3609,9 @@ Código: *${roleCode}*`,
       }
     }
     if (isGroup && isAntiLinkCanal && !isGroupAdmin && !isParceiro) {
+      console.log('[DEBUG] Verificando anti-link canal para não-admin');
       if (!isUserWhitelisted(sender, 'antilinkcanal')) {
+        console.log('[DEBUG] Usuário não está na whitelist anti-linkcanal');
         let foundChannelLink = false;
         Promise.resolve()
           .then(() => {
@@ -3610,6 +3627,7 @@ Código: *${roleCode}*`,
           })
           .then(() => {
             if (foundChannelLink) {
+              console.log('[DEBUG] BLOQUEADO: anti-link canal - link detectado');
               if (isOwner) return;
               if (!AllgroupMembers.includes(sender)) return;
               if (isBotAdmin) {
@@ -3646,28 +3664,38 @@ Código: *${roleCode}*`,
         return;
       }
     }
-    if (isGroup && isAntiLinkSoft && !isGroupAdmin && !isParceiro && budy2.includes('http') && !isOwner) {
+    if (isGroup && isAntiLinkSoft && !isGroupAdmin && !isParceiro && !isOwner && !isCmd) {
+      console.log('[DEBUG] Verificando anti-link soft para não-admin');
       if (!isUserWhitelisted(sender, 'antilinksoft')) {
-        nazu.sendMessage(from, {
-          delete: {
-            remoteJid: from,
-            fromMe: false,
-            id: info.key.id,
-            participant: sender
-          }
-        })
-          .catch(error => {
-            console.error("Erro no sistema antilinksoft:", error);
-          });
-        return;
+        // Regex mais precisa: detecta URLs reais (http/https/www)
+        const urlRegex = /\b(?:https?:\/\/|www\.)\S+/i;
+        const hasUrl = urlRegex.test(body);
+        
+        if (hasUrl) {
+          console.log('[DEBUG] BLOQUEADO: anti-link soft - URL detectada:', body.substring(0, 50));
+          nazu.sendMessage(from, {
+            delete: {
+              remoteJid: from,
+              fromMe: false,
+              id: info.key.id,
+              participant: sender
+            }
+          })
+            .catch(error => {
+              console.error("Erro no sistema antilinksoft:", error);
+            });
+          return;
+        }
       }
     }
     // AntiLink Hard - Remove qualquer link compartilhado
-    if (isGroup && groupData.antilinkhard && parceriasData.active && !isGroupAdmin && !isOwner && !isParceiro) {
-      const linkRegex = /(https?:\/\/|www\.)[^\s]+|([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?/gi;
-      const hasLink = linkRegex.test(budy2);
+    if (isGroup && groupData.antilinkhard && parceriasData.active && !isGroupAdmin && !isOwner && !isParceiro && !isCmd) {
+      // Regex mais restrita: exige protocolo (http/https) ou www
+      const linkRegex = /\b(?:https?:\/\/|www\.)\S+/gi;
+      const hasLink = linkRegex.test(body);
       
       if (hasLink && !isUserWhitelisted(sender, 'antilinkhard')) {
+        console.log('[DEBUG] BLOQUEADO: anti-link hard - link detectado:', body.substring(0, 50));
         Promise.resolve()
           .then(() => {
             if (isBotAdmin) {
@@ -3704,7 +3732,11 @@ Código: *${roleCode}*`,
       }
     }
   const botStateFile = pathz.join(DATABASE_DIR, 'botState.json');
-    if (botState.status === 'off' && !isOwner) return;
+    console.log('[DEBUG] botState.status:', botState.status, 'isOwner:', isOwner, 'isGroup:', isGroup, 'sender:', sender?.substring(0, 15));
+    if (botState.status === 'off' && !isOwner) {
+      console.log('[DEBUG] BLOQUEADO: bot desligado para não-admin');
+      return;
+    }
     if (botState.viewMessages) nazu.readMessages([info.key]);
     try {
       if (budy2 && budy2.length > 1) {
