@@ -6,7 +6,7 @@ Bem-vindo ao repositório do **ChimasBot**! Este projeto é um bot avançado e m
 
 > ⚠️ **Aviso Importante**: O nazuna Bot é um projeto de código aberto, desenvolvido com paixão e dedicação. No entanto, ele é **protegido por direitos autorais**. Isso significa que, embora você tenha total liberdade para editar e distribuir o bot para uso pessoal ou em sua comunidade.
 > **Aviso importante da ChimasAlice** ESSE PROJETO NUNCA SERÁ DE USO PARA VENDAS OU ALGO DO TIPO.
-> Como mencionado no Redme oficial do nazuna, a sua distribuição de forma indevida vai ter consequências, querendo ou não, e eu sou totalmente a favor disso, vlwww '°'
+> Como mencionado no Readme oficial do nazuna, a sua distribuição de forma indevida vai ter consequências, querendo ou não, e eu sou totalmente a favor disso, vlwww '°'
 ---
 
 ## ✨ Por que o nazuna Bot se Destaca?
