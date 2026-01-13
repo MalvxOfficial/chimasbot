@@ -2,10 +2,11 @@
 
 ![nazuna Bot Banner](https://raw.githubusercontent.com/MalvxOfficial/chimasbot/main/dados/midias/menu.jpg)
 
-Bem-vindo ao repositório oficial do **nazuna Bot**! Este projeto é um bot avançado e multifuncional para WhatsApp, desenvolvido com a robustez do **Node.js** e a flexibilidade da biblioteca **WaLib**. Criado para otimizar sua comunicação e gestão de grupos, o nazuna Bot oferece uma vasta gama de comandos, desde funcionalidades administrativas essenciais até opções de entretenimento interativas. É a solução perfeita tanto para desenvolvedores iniciantes que buscam uma ferramenta fácil de usar quanto para usuários avançados que desejam uma plataforma altamente personalizável.
+Bem-vindo ao repositório do **ChimasBot**! Este projeto é um bot avançado e multifuncional para WhatsApp, desenvolvido com a robustez do **Node.js** e a flexibilidade da biblioteca **WaLib**. Criado para otimizar sua comunicação e gestão de grupos, o ChimasBot oferece uma vasta gama de comandos, desde funcionalidades administrativas essenciais até opções de entretenimento interativas. É a solução perfeita tanto para desenvolvedores iniciantes que buscam uma ferramenta fácil de usar quanto para usuários avançados que desejam uma plataforma altamente personalizável.
 
-> ⚠️ **Aviso Importante**: O nazuna Bot é um projeto de código aberto, desenvolvido com paixão e dedicação. No entanto, ele é **protegido por direitos autorais**. Isso significa que, embora você tenha total liberdade para editar e distribuir o bot para uso pessoal ou em sua comunidade, a **venda** do nazuna Bot ou de suas versões modificadas é estritamente proibida, pois o projeto é oferecido gratuitamente. Além disso, a remoção total dos créditos do autor é vedada. Violações destas condições podem resultar em ações legais.
-
+> ⚠️ **Aviso Importante**: O nazuna Bot é um projeto de código aberto, desenvolvido com paixão e dedicação. No entanto, ele é **protegido por direitos autorais**. Isso significa que, embora você tenha total liberdade para editar e distribuir o bot para uso pessoal ou em sua comunidade.
+> **Aviso importante da ChimasAlice** ESSE PROJETO NUNCA SERÁ DE USO PARA VENDAS OU ALGO DO TIPO.
+> Como mencionado no Redme oficial do nazuna, a sua distribuição de forma indevida vai ter consequências, querendo ou não, e eu sou totalmente a favor disso, vlwww '°'
 ---
 
 ## ✨ Por que o nazuna Bot se Destaca?
