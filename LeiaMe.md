@@ -1,6 +1,6 @@
-# 🤖 nazuna Bot: Seu Assistente Completo para WhatsApp
+# 🤖 ChimasBot: Um bot para Whatsapp que funciona através de 'Dispositivos Conectados'!
 
-![nazuna Bot Banner](https://raw.githubusercontent.com/hiudyy/nazuna/main/dados/midias/menu.jpg)
+![nazuna Bot Banner](https://raw.githubusercontent.com/MalvxOfficial/chimasbot/main/dados/midias/menu.jpg)
 
 Bem-vindo ao repositório oficial do **nazuna Bot**! Este projeto é um bot avançado e multifuncional para WhatsApp, desenvolvido com a robustez do **Node.js** e a flexibilidade da biblioteca **WaLib**. Criado para otimizar sua comunicação e gestão de grupos, o nazuna Bot oferece uma vasta gama de comandos, desde funcionalidades administrativas essenciais até opções de entretenimento interativas. É a solução perfeita tanto para desenvolvedores iniciantes que buscam uma ferramenta fácil de usar quanto para usuários avançados que desejam uma plataforma altamente personalizável.
 
