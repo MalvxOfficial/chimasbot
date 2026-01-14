@@ -11,9 +11,9 @@
 ---
 
 Bem-vindo ao repositório do **ChimasBot**! Este projeto é um bot avançado e multifuncional para WhatsApp, desenvolvido com **Node.js** e biblioteca **WaLib**. Criado para otimizar sua comunicação e gestão de grupos, o ChimasBot oferece milhares de comandos, desde funcionalidades administrativas até opções de entretenimento interativas. 
-**É a solução perfeita tanto para desenvolvedores iniciantes que buscam uma ferramenta fácil de usar quanto para usuários avançados que desejam uma plataforma altamente personalizável.**
+**É a solução perfeita tanto para desenvolvedores iniciantes que buscam uma ferramenta fácil de usar quanto para usuários avançados que desejam um bot altamente personalizável como o ChimasBot.**
 
-> ⚠️ **Aviso Importante**: O ChimasBot é um projeto de código aberto, desenvolvido com paixão. No entanto, ele é **protegido por direitos autorais**. Isso significa que, embora você tenha total liberdade para editar e distribuir o bot para uso pessoal ou em sua comunidade.
+> ⚠️ **Aviso Importante**: O ChimasBot é um projeto de código aberto, desenvolvido com paixão pelo hiudyy. No entanto, ele é **protegido por direitos autorais**. Isso significa que, você tem total liberdade para editar e distribuir o bot para uso pessoal ou em sua comunidade.
 > **Aviso importante da ChimasAlice** ESSE PROJETO NUNCA SERÁ DE USO PARA VENDAS OU ALGO DO TIPO.
 > Como mencionado no Readme oficial do nazuna, a sua distribuição de forma indevida vai ter consequências, querendo ou não, e eu sou totalmente a favor disso, vlwww '°'
 
@@ -24,30 +24,17 @@ Bem-vindo ao repositório do **ChimasBot**! Este projeto é um bot avançado e m
 <details>
 <summary><strong>🔍 Clique para ver as principais características</strong></summary>
 
-O ChimasBot foi projetado para ser um parceiro digital que simplifica suas interações no WhatsApp. Veja o que o torna tão especial e querido pela ChimasAlice:
+O ChimasBot foi projetado para ser um parceiro digital que simplifica suas interações no WhatsApp. Veja o que o torna tão especial pela ChimasAlice:
 
-- **Configuração Simplificada e Intuitiva**: Conecte-se ao WhatsApp em questão de minutos, utilizando um prático QR code ou um código de pareamento, eliminando complexidades iniciais que aconteciam antigamente.
+- **Configuração**: Conecte-se ao WhatsApp em questão de minutos, utilizando um prático QR code ou um código de pareamento, eliminando complexidades iniciais que aconteciam antigamente.
 
-- **Funcionalidade Abrangente e Versátil**: Gerencie grupos com eficiência utilizando nossa função de administração, utilize ferramentas utilitárias para diversas tarefas e divirta-se com uma biblioteca crescente de comandos de entretenimento, tudo em um só lugar.
+- **Variedades de funcionalidade e totalmente Versátil**: Gerencie grupos com eficiência utilizando a função de administração, utilize ferramentas utilitárias para diversas tarefas e divirta-se com uma biblioteca crescente de comandos de entretenimento, tudo em um só lugar.
 
-- **Compatibilidade Multiplataforma Inigualável**: Rode o ChimasBot em praticamente qualquer ambiente: Windows(**Com Wsl**), Linux, macOS, dispositivos Android(**Com Termux**)
+- **Compatibilidade Multiplataforma**: Rode o ChimasBot em praticamente qualquer ambiente: Windows(**Com Wsl**), Linux, macOS, dispositivos Android(**Com Termux**)
 
 - **Segurança Reforçada e Estabilidade Comprovada**: Desenvolvido com base no modo multi-dispositivos do WhatsApp, o ChimasBot oferece uma operação fluida, segura e confiável, minimizando interrupções e protegendo seus dados.
 
-> 💡 **Explore o Potencial**: Após a configuração inicial, basta digitar o prefixo do seu comando + menu para ver o menu do bot no WhatsApp para desvendar um universo de comandos e funcionalidades que o ChimasBot oferece!
-</details>
-
----
-
-## 📢 Conecte-se à Comunidade Oficial
-
-<details>
-<summary><strong>👥 Junte-se à nossa comunidade</strong></summary>
-
-Mantenha-se sempre atualizado com as últimas notícias, receba dicas exclusivas e acesse suporte direto da comunidade do ChimasBot. Junte-se a nós!
-
-[![Grupo WhatsApp](https://img.shields.io/badge/Entrar-WhatsApp-25D366?style=flat-square&logo=whatsapp)](https://chat.whatsapp.com/EvgIsHK0NJmGbErpy4G3aB?mode=ac_t)  
-*Clique para entrar no nosso grupo oficial do WhatsApp e faça parte da nossa crescente comunidade!* 
+> 💡 **Explore o Potencial**: Após a configuração inicial, basta digitar o **prefixo do seu comando + menu** para ver o menu do nosso bot no WhatsApp para desvendar um universo de comandos e funcionalidades que o ChimasBot oferece!
 </details>
 
 ---
@@ -57,21 +44,21 @@ Mantenha-se sempre atualizado com as últimas notícias, receba dicas exclusivas
 <details>
 <summary><strong>⚡ Início rápido para quem tem experiência</strong></summary>
 
-Se você é novo no mundo dos bots de WhatsApp e nunca instalou o ChimasBot ou qualquer bot antes, é altamente recomendável que você siga o tutorial específico para a sua plataforma (Windows, Linux, Termux), detalhado na seção [Tutoriais de Instalação por Plataforma](#-tutoriais-de-instalação-por-plataforma). Esses guias foram elaborados para cobrir cada etapa, minimizando possíveis erros.
+Se você é novo no mundo dos bots de WhatsApp e nunca instalou o ChimasBot ou qualquer bot antes, é **altamente recomendável que você siga o tutorial específico para a sua plataforma (Windows, Linux, Termux), detalhado na seção [Tutoriais de Instalação por Plataforma](#-tutoriais-de-instalação-por-plataforma). Esses guias foram elaborados para cobrir cada etapa, minimizando possíveis erros.**
 
 Para aqueles que já têm alguma familiaridade ou já possuem os pré-requisitos instalados, siga estes passos para uma configuração rápida:
 
-1. **Prepare o Ambiente**: Certifique-se de ter o Node.js (versão 18 ou superior) e o Git instalados em seu sistema. Consulte a seção [Pré-requisitos Essenciais](#-pré-requisitos-essenciais) para mais detalhes.
+1. **Prepare o Ambiente**: Certifique-se de ter o **Node.js(versão 18 ou superior)** e o **Git instalado em seu sistema. Consulte a seção [Pré-requisitos Essenciais](#-pré-requisitos-essenciais) para mais detalhes.**
 2. **Baixe o Bot**: Clone o repositório oficial do ChimasBot do GitHub para o seu ambiente de trabalho.
-3. **Conecte ao WhatsApp**: Utilize um número de telefone secundário e exclusivo para o bot. Esta é uma medida de segurança crucial para proteger sua conta principal de possíveis bloqueios ou banimentos pelo WhatsApp.
-4. **Explore os Comandos**: Após a conexão bem-sucedida, envie `menu` com seu prefixo para o bot no WhatsApp para descobrir todas as funcionalidades e comandos disponíveis.
+3. **Conecte ao WhatsApp**: Utilize um número de telefone secundário e exclusivo para o bot. Esta é uma medida de segurança crucial para proteger sua conta principal de possíveis bloqueios ou banimentos pelo WhatsApp em casos de tarefas pesadas utilizando o ChimasBot.
+4. **Explore os Comandos**: Após a conexão bem-sucedida, envie `menu` com seu prefixo que você definiu nas configurações para o bot no WhatsApp para descobrir todas as funcionalidades e comandos disponíveis.
 
-> 💡 **Dica para Iniciantes**: Não se sinta sobrecarregado se os termos parecerem complexos. Cada seção deste documento foi cuidadosamente elaborada para fornecer instruções claras e passo a passo, tornando o processo acessível a todos.
+> 💡 **Dica para Iniciantes**: Não se sinta sobrecarregado se os termos e algumas palavras parecerem complexas. Cada seção deste documento foi analisada e elaborada para fornecer instruções claras e passo a passo, tornando o processo acessível a todos.
 </details>
 
 ---
 
-## 📋 Pré-requisitos Essenciais
+## 📋 **Pré-requisitos Obrigatórios**
 
 <details>
 <summary><strong>🛠️ O que você precisa antes de começar</strong></summary>
@@ -83,9 +70,9 @@ Para garantir que o ChimasBot funcione perfeitamente em seu sistema, você preci
 | **Node.js**         | **Versão 18 ou superior**. O Node.js é o ambiente de execução JavaScript necessário para rodar o bot. Baixe a versão LTS (Long Term Support) mais recente diretamente do site oficial: [nodejs.org](https://nodejs.org). |
 | **Git**             | Uma ferramenta de controle de versão essencial para clonar o repositório do ChimasBot do GitHub. Faça o download e instale-o a partir do site oficial: [git-scm.com](https://git-scm.com).        |
 | **WhatsApp**        | Um **número de telefone dedicado e secundário** para o bot. É crucial **NÃO** utilizar seu número principal, caso irá fazer tarefas pesadas utilizando o ChimasBot, pois o uso de bots pode, em casos raros, levar a banimentos temporários ou permanentes da conta pelo WhatsApp. |
-| **Internet Estável**| Uma conexão à internet contínua e estável é fundamental para a configuração inicial, conexão com o WhatsApp e o funcionamento ininterrupto do bot.                                  |
-| **Dispositivo Compatível**| Você pode rodar o ChimasBot em uma variedade de plataformas: um computador (Windows, Linux, macOS), um dispositivo Android (com o aplicativo Termux instalado) ou um servidor dedicado (como os que utilizam Pterodactyl), mas o recomendável para se usar, sempre será o Nazuna https://github.com/hiudyy/nazuna **Não** recomendamos testar l ChimasBot em qualquer servidor, ele não pode aceitar muito bem. |
-| **Recursos Mínimos de Hardware**| Para um funcionamento básico, o bot requer **256MB de armazenamento** disponível. Para um desempenho otimizado e mais fluidez, recomendamos **512MB de RAM** e **512MB de espaço em disco**. |
+| **Internet Estável ou sem instabilidades**| Uma conexão à internet contínua e estável é fundamental para a configuração inicial, conexão com o WhatsApp e o funcionamento ininterrupto do bot.                                  |
+| **Um Dispositivo**| Você pode rodar o ChimasBot em uma variedade de plataformas: um computador (Windows, Linux, macOS), um dispositivo Android (com o aplicativo Termux instalado) ou um servidor dedicado (como os que utilizam Pterodactyl), mas o recomendável para se usar, sempre será o Nazuna https://github.com/hiudyy/nazuna **Não recomendamos testar o ChimasBot em servidor, ele não pode aceitar muito bem.** |
+| **Recursos Mínimos de Hardware**| Para um funcionamento básico, o bot requer **256MB de armazenamento disponível.** Para um desempenho otimizado e mais fluidez, recomendamos **512MB de RAM** e **512MB de espaço em disco**. |
 
 > ⚠️ **Alerta de Segurança**: Reafirmamos a importância de utilizar um número de telefone secundário para o ChimasBot **Em caso de tarefas pesadas**. Esta prática protege sua conta pessoal do WhatsApp de quaisquer riscos também associados ao uso de automação.
 </details>
@@ -100,17 +87,16 @@ Para garantir que o ChimasBot funcione perfeitamente em seu sistema, você preci
 Siga este guia passo a passo para instalar o ChimasBot em seu sistema. Certifique-se de ter todos os [Pré-requisitos Essenciais](#-pré-requisitos-essenciais) instalados antes de começar.
 
 1. **Clonar o Repositório do GitHub**  
-   Abra o terminal de sua preferência (Prompt de Comando no Windows, PowerShell, Terminal no Linux/macOS ou Termux no Android) e execute os seguintes comandos. Estes comandos baixarão todo o código-fonte do ChimasBot para o seu computador e o levarão para o diretório do projeto:
+   Abra o terminal de sua preferência (WSL no Windows, Terminal no Linux/macOS ou Termux no Android) e execute os seguintes comandos. Estes comandos irá baixar todo o código-fonte do ChimasBot para o seu armazenamento:
    ```bash
    git clone https://github.com/MalvxOfficial/chimasbot.git && cd chimasbot
    ```
 
 2. **Instalar Dependências do Projeto**  
-   O ChimasBot utiliza diversas bibliotecas e pacotes Node.js para funcionar. Para instalá-los, execute os comandos abaixo, um por vez. O processo pode levar alguns minutos, dependendo da sua conexão com a internet:
+   O ChimasBot utiliza diversas bibliotecas e pacotes Node.js para funcionar. Para instalá-los, execute os comandos abaixo, O processo pode levar alguns minutos, dependendo da sua conexão com a internet:
    ```bash
    npm run config && npm run config:install
    ```  
-
    - **Explicação**:  
      - `git clone https://github.com/MalvxOfficial/chimasbot.git`: Este comando baixa uma cópia completa do repositório do ChimasBot do GitHub para o seu diretório atual. Uma nova pasta chamada `chimasbot` será criada no diretório atual.
      - `cd chimasbot`: Este comando muda o diretório de trabalho atual para a pasta `chimasbot`, onde o bot está localizado. Todas as operações subsequentes devem ser executadas dentro desta pasta.
@@ -340,9 +326,9 @@ Este tutorial abrangente detalha a instalação do ChimasBot no Termux, desde o 
    mkdir ~/storage/emulated/ChimasBot && cd ~/storage/emulated/Chimasbot && git clone https://github.com/MalvxOfficial/chimasbot.git && cd chimasbot
    ```
    - **Explicação**:  
-     - `cd ~/storage/shared`: Muda o diretório atual para a pasta `shared` dentro do armazenamento do Termux, que geralmente mapeia para o armazenamento interno do seu dispositivo Android. É o local ideal para clonar projetos, evitando problemas de permissão.
-     - `git clone https://github.com/hiudyy/nazuna.git`: Baixa todo o código-fonte do ChimasBot para uma nova pasta chamada `nazuna`.
-     - `cd nazuna`: Entra na pasta recém-criada do bot, onde todos os comandos subsequentes devem ser executados.
+     - `cd ~/storage/emulated/0`: Muda o diretório atual para a pasta `0` dentro do armazenamento do Termux, que geralmente mapeia para o armazenamento interno do seu dispositivo Android. É o local ideal para clonar projetos, evitando problemas de permissão.
+     - `git clone https://github.com/MalvxOfficial/chimasbot`: Baixa todo o código-fonte do ChimasBot para uma nova pasta chamada `chimasbot`.
+     - `cd chimasbot`: Entra na pasta recém-criada do bot, onde todos os comandos subsequentes devem ser executados.
 
 5. **Instalar as Dependências do Bot**  
    O ChimasBot depende de várias bibliotecas Node.js para funcionar. O comando `npm run config:install` irá instalá-las de forma otimizada.
@@ -368,7 +354,7 @@ Este tutorial abrangente detalha a instalação do ChimasBot no Termux, desde o 
    cd ~/storage/emulated/ChimasBot
    npm run update
    ```
-   - **Solução de Problemas Pós-Atualização**: Se o bot parar de funcionar após uma atualização ou por qualquer outro motivo, tente reiniciar o processo. Certifique-se de estar na pasta `nazuna` e execute `npm start` novamente.
+   - **Solução de Problemas Pós-Atualização**: Se o bot parar de funcionar após uma atualização ou por qualquer outro motivo, tente reiniciar o processo. Certifique-se de estar na pasta `chimasbot` e execute `npm start` novamente.
 
 > 💡 **Dica Crucial para Termux**: Se você encontrar o erro "Permissão negada" em qualquer etapa, é quase certo que as permissões de armazenamento não foram concedidas corretamente. Execute `termux-setup-storage` novamente e certifique-se de aceitar a permissão na caixa de diálogo do sistema.
 </details>
@@ -390,9 +376,7 @@ Encontrou algum problema durante a instalação ou uso do ChimasBot? Aqui estão
 | **QR Code não funciona ou expira rapidamente** | **Causas Comuns**: Conexão de internet lenta, terminal muito pequeno para exibir o QR code corretamente, ou demora para escanear. **Soluções**: 1) Aumente o tamanho da janela do terminal. 2) Verifique sua conexão com a internet. 3) Gere um novo QR code reiniciando o bot com `npm start`. 4) Tente o método de conexão com código de pareamento. |
 | **Bot desconecta frequentemente** | **Causas Comuns**: Conexão de internet instável, recursos insuficientes (RAM/CPU), ou problemas com a sessão salva. **Soluções**: 1) Verifique sua conexão com a internet. 2) Monitore o uso de recursos do sistema. 3) Reinicie o bot com `npm start`. 4) Como último recurso, apague a pasta `sessions` (isso exigirá uma nova autenticação) e reinicie o bot. |
 | **Erro durante a instalação de dependências (npm install)** | **Causas Comuns**: Conexão de internet instável, pacotes corrompidos no cache do npm, ou problemas de permissão. **Soluções**: 1) Verifique sua conexão com a internet. 2) Limpe o cache do npm com `npm cache clean --force` e tente novamente. 3) Certifique-se de que você tem permissões de escrita no diretório do projeto. 4) Verifique se você está usando a versão correta do Node.js (18+). |
-| **Termux para de funcionar em segundo plano** | **Causa**: O sistema Android é agressivo ao fechar aplicativos em segundo plano para economizar bateria. **Soluções**: 1) Desative a otimização de bateria para o aplicativo Termux nas configurações do seu Android. 2) Use um aplicativo de "manter tela ligada" ou "manter acordado". 3) Reinicie o bot com `cd /sdcard/nazuna && npm start`. |
-
-> 😊 **Ainda com Problemas?** Nossa comunidade está pronta para ajudar! Junte-se ao nosso [Grupo do WhatsApp](https://chat.whatsapp.com/EvgIsHK0NJmGbErpy4G3aB?mode=ac_t) para obter suporte direto do criador e de outros usuários experientes.
+| **Termux para de funcionar em segundo plano** | **Causa**: O sistema Android é agressivo ao fechar aplicativos em segundo plano para economizar bateria. **Soluções**: 1) Desative a otimização de bateria para o aplicativo Termux nas configurações do seu Android. 2) Use um aplicativo de "manter tela ligada" ou "manter acordado". 3) Reinicie o bot com **Ctrl + C** `cd ~/storage/emulated/0/ChimasBot && npm start`. |
 </details>
 
 ---
@@ -404,12 +388,6 @@ Encontrou algum problema durante a instalação ou uso do ChimasBot? Aqui estão
 
 O desenvolvimento e a manutenção do **Nazuna** são um trabalho de amor, mas também exigem tempo, esforço e recursos. Seu apoio é fundamental para garantir a continuidade e a evolução do projeto, permitindo a adição de novas funcionalidades, melhorias de desempenho e suporte contínuo à comunidade. https://github.com/hiudyy/nazuna
 
-Se você aprecia o Nazuna e deseja contribuir para seu futuro, considere fazer uma doação. Cada contribuição, por menor que seja, faz uma grande diferença e é imensamente apreciada.
-
-- **🇧🇷 Doações no Brasil (via Pix)**  
-  **Chave Pix (CNPJ):** `60.374.533/0001-65`  
-  *Qualquer valor é bem-vindo e nos ajuda a manter o projeto vivo e próspero!* 
-
 > ❤️ **Gratidão!** Agradecemos imensamente a todos que apoiam o Nazuna. Sua generosidade é o que nos motiva a continuar inovando e aprimorando esta ferramenta para toda a comunidade!
 </details>
 
@@ -420,7 +398,7 @@ Se você aprecia o Nazuna e deseja contribuir para seu futuro, considere fazer u
 <details>
 <summary><strong>⚖️ Termos de uso e direitos</strong></summary>
 
-© 2025 **Hiudy**. Todos os direitos reservados.
+© 2026 **Hiudy**. Todos os direitos reservados.
 
 O **Nazuna** é um projeto de código aberto, mas é **protegido por copyright**. Isso significa que, embora você tenha total liberdade para editar e distribuir o bot para uso pessoal ou em sua comunidade, a **venda** do Nazuna ou de suas versões modificadas é estritamente proibida, pois o projeto é oferecido gratuitamente. Além disso, a remoção total dos créditos do autor é vedada. Violações destas condições podem resultar em ações legais.
 </details>
@@ -533,7 +511,7 @@ Para desenvolvedores que desejam fazer modificações avançadas no ChimasBot, s
 A estrutura do projeto é organizada de forma modular para facilitar o desenvolvimento:
 
 ```
-nazuna/
+chimasbot/
 ├── dados/                    # Dados e configurações
 │   ├── src/                  # Código fonte principal
 │   │   ├── funcs/            # Funções do bot
