@@ -1,7 +1,7 @@
 {
-    "name": "nazuna",
+    "name": "ChimasBot",
     "version": "8.0.0",
-    "description": "Bot de whatsapp criada por hiudy",
+    "description": "Um Fork diferenciado do Nazuna ;-)",
     "type": "module",
     "main": "dados/src/connect.js",
     "scripts": {
@@ -13,10 +13,9 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/hiudyy/nazuna.git"
+        "url": "git+https://github.com/MalvxOfficial/chimasbot"
     },
-    "homepage": "https://cognima.com.br",
-    "author": "Hiudy",
+    "author": "Querido e dono; Hiudy",
     "license": "ISC",
     "dependencies": {
         "@hapi/boom": "^10.0.1",
