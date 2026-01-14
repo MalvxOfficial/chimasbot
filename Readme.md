@@ -1,15 +1,25 @@
-# 🤖 ChimasBot: Um bot para Whatsapp que funciona através de 'Dispositivos Conectados'!
-
+# 🤖 ChimasBot: Um bot para Whatsapp que funciona através da função **Dispositivos Conectados**!
 ![Foto de capa do repositório ChimasBot](https://raw.githubusercontent.com/MalvxOfficial/chimasbot/main/dados/midias/menu.jpg)
 
-Bem-vindo ao repositório do **ChimasBot**! Este projeto é um bot avançado e multifuncional para WhatsApp, desenvolvido com a robustez do **Node.js** e a flexibilidade da biblioteca **WaLib**. Criado para otimizar sua comunicação e gestão de grupos, o ChimasBot oferece uma vasta gama de comandos, desde funcionalidades administrativas essenciais até opções de entretenimento interativas. É a solução perfeita tanto para desenvolvedores iniciantes que buscam uma ferramenta fácil de usar quanto para usuários avançados que desejam uma plataforma altamente personalizável.
-
-> ⚠️ **Aviso Importante**: O ChimasBot é um projeto de código aberto, desenvolvido com paixão e dedicação. No entanto, ele é **protegido por direitos autorais**. Isso significa que, embora você tenha total liberdade para editar e distribuir o bot para uso pessoal ou em sua comunidade.
-> **Aviso importante da ChimasAlice** ESSE PROJETO NUNCA SERÁ DE USO PARA VENDAS OU ALGO DO TIPO.
-> Como mencionado no Readme oficial do nazuna, a sua distribuição de forma indevida vai ter consequências, querendo ou não, e eu sou totalmente a favor disso, vlwww '°'
 ---
 
-## ✨ Por que o ChimasBot se Destaca?
+📈 **Visitas Totais ao Repositório**:  
+![Contador de Visitas do repositório oficial do nazuna](https://count.getloli.com/@nazuninha-bot?name=nazuninha-bot&theme=booru-lewd&padding=8&offset=0&align=top&scale=2&pixelated=1&darkmode=1)  
+*Este contador registra o número total de visualizações que o repositório do Nazuna recebeu, refletindo o interesse geral no projeto. | https://github.com/hiudyy/nazuna*
+</details>
+
+---
+
+Bem-vindo ao repositório do **ChimasBot**! Este projeto é um bot avançado e multifuncional para WhatsApp, desenvolvido com **Node.js** e biblioteca **WaLib**. Criado para otimizar sua comunicação e gestão de grupos, o ChimasBot oferece milhares de comandos, desde funcionalidades administrativas até opções de entretenimento interativas. 
+**É a solução perfeita tanto para desenvolvedores iniciantes que buscam uma ferramenta fácil de usar quanto para usuários avançados que desejam uma plataforma altamente personalizável.**
+
+> ⚠️ **Aviso Importante**: O ChimasBot é um projeto de código aberto, desenvolvido com paixão. No entanto, ele é **protegido por direitos autorais**. Isso significa que, embora você tenha total liberdade para editar e distribuir o bot para uso pessoal ou em sua comunidade.
+> **Aviso importante da ChimasAlice** ESSE PROJETO NUNCA SERÁ DE USO PARA VENDAS OU ALGO DO TIPO.
+> Como mencionado no Readme oficial do nazuna, a sua distribuição de forma indevida vai ter consequências, querendo ou não, e eu sou totalmente a favor disso, vlwww '°'
+
+---
+
+## ✨ Características do ChimasBot
 
 <details>
 <summary><strong>🔍 Clique para ver as principais características</strong></summary>
@@ -25,13 +35,6 @@ O ChimasBot foi projetado para ser um parceiro digital que simplifica suas inter
 - **Segurança Reforçada e Estabilidade Comprovada**: Desenvolvido com base no modo multi-dispositivos do WhatsApp, o ChimasBot oferece uma operação fluida, segura e confiável, minimizando interrupções e protegendo seus dados.
 
 > 💡 **Explore o Potencial**: Após a configuração inicial, basta digitar o prefixo do seu comando + menu para ver o menu do bot no WhatsApp para desvendar um universo de comandos e funcionalidades que o ChimasBot oferece!
-</details>
-
----
-
-📈 **Visitas Totais ao Repositório**:  
-![Contador de Visitas do repositório oficial do nazuna](https://count.getloli.com/@nazuninha-bot?name=nazuninha-bot&theme=booru-lewd&padding=8&offset=0&align=top&scale=2&pixelated=1&darkmode=1)  
-*Este contador registra o número total de visualizações que o repositório do Nazuna recebeu, refletindo o interesse geral no projeto. | https://github.com/hiudyy/nazuna*
 </details>
 
 ---
